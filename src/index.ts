@@ -16,7 +16,7 @@ app.get("/clients", async (req, res) => {
   res.json(todos);
 });
 
-app.post("/todos", async (req, res) => {
+app.post("/clients", async (req, res) => {
   const { name, email, password } = req.body
   const todo = await prisma.clients.create({
     data: {
@@ -29,7 +29,7 @@ app.post("/todos", async (req, res) => {
   return res.json(todo);
 });
 
-app.get("/todos/:id", async (req, res) => {
+app.get("/clients/:id", async (req, res) => {
   const id = req.params.id;
   const todo = await prisma.clients.findUnique({
     where: { id },
